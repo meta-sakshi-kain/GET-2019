@@ -24,29 +24,27 @@ optionSelected = sc.nextInt();
 
 switch (optionSelected){
 case 1:
-	initializeListItems(); //get values of items from items list
-	cart.addItem( fetchProductDetails());
-	break;
+initializeListItems(); //get values of items from items list
+cart.addItem( fetchProductDetails());
+break;
 case 2:
-	cart.updateCart();
-	break;
-
+cart.updateCart();
+break;
 case 3:
-	cart.showCart();
-	break;
-
+cart.showCart();
+break;
 case 4:
-	cart.generateBill();
-	break;
+cart.generateBill();
+break;
 case 5:
-	System.exit(0);
+System.exit(0);
 default:
-	System.out.println("Enter a valid choice");
+System.out.println("Enter a valid choice");
 }
 }
 while (optionSelected != 5);
-		
-	
+
+
 
 }
 //Initialize the list of items
@@ -65,14 +63,14 @@ System.out.println("    "+ i + "      " + listOfItems.get(i).getItemName() + "  
 
 //fetch details of items present in list
 public static Product fetchProductDetails(){
-	System.out.println("Write item code to add to cart");
-	int productCode = sc.nextInt();
-	int itemQuantity = 1;
-	int itemCode = listOfItems.get(productCode-1).getproductCode();
-	String itemName = listOfItems.get(productCode-1).getItemName();
-	double itemPrice = listOfItems.get(productCode-1).getPrice();
-	Product product = new Product(itemCode,itemName,itemQuantity,itemPrice);
-	return product;
+System.out.println("Write item code to add to cart");
+int productCode = sc.nextInt();
+int itemQuantity = 1;
+int itemCode = listOfItems.get(productCode-1).getproductCode();
+String itemName = listOfItems.get(productCode-1).getItemName();
+double itemPrice = listOfItems.get(productCode-1).getPrice();
+Product product = new Product(itemCode,itemName,itemQuantity,itemPrice);
+return product;
 }
 
 

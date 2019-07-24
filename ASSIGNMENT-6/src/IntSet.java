@@ -1,7 +1,6 @@
 public final class IntSet {
 	// immutable array
 private final int[] array;
-
 public IntSet(int[] array) {
 	this.array = array;
 }
@@ -12,7 +11,7 @@ public int[] getArray() {
 }
 
 /**
- * @param x number to be searched in set
+ * @param x number for search in set
  * @return true if x is member of set else false
  */
 public boolean isMember(int x) {
@@ -33,27 +32,23 @@ public int size() {
 }
 
 /**
- * @param s represents a set
+ * @param s set
  * @return true if s is a subset of the set else false
  */
 public boolean isSubSet(IntSet s) {
 	if (s.size() <= array.length) {
 		// check size of subset
-		int i, j;
-		for (i = 0; i < s.size(); i++) {
-			for (j = 0; j < array.length; j++) {
-				// check member of set s is exist in array
-				if (s.getArray()[i] == array[j]) {
-					break;
-				}
-			}
-			// not find in array
-			if (j >= array.length)
+		boolean isExists = false;
+		for (int i = 0; i < s.size(); i++) {
+			isExists=isMember(s.getArray()[i]);
+			if(!isExists)
 				return false;
 		}
 		return true;
-	} else
-		return false;
+
+	}else
+		throw new AssertionError("Subset cannot be greater than original array");
+
 }
 
 /**
@@ -63,14 +58,9 @@ public IntSet getCompliment() {
 	// set size of compliment array
 	int[] complimentArray = new int[1000 - array.length];
 	boolean isExist = false;
-	for (int i = 1, index = 0; i <= 1000; i++) {
-		isExist = false;
-		for (int j = 0; j < array.length; j++) {
-			// avoid member which is exist in array
-			if (array[j] == i) {
-				isExist = true;
-			}
-		}
+	int index=0;
+	for (int i = 1; i <= 1000; i++) {
+		isExist = isMember(i);
 		if (!isExist) {
 			// check size of compliment array
 			if (index < complimentArray.length)
@@ -126,4 +116,5 @@ public static IntSet union(IntSet s1, IntSet s2) {
 		return new IntSet(unionArray);
 	}
 }
+
 

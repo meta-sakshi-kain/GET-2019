@@ -40,7 +40,7 @@ public class MultivariantPolynomial {
 				if (i == polynomial.length() - 1)
 					newNode.poly += polynomial.charAt(i);
 				temp = "";
-				// Add to the Modified Linked List
+				// Add to the Linked List
 				if (list.head == null)
 					list.head = newNode;
 				else {

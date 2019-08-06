@@ -1,6 +1,5 @@
 package question_1;
 import java.util.ArrayList;
-//class for implementing binary tree
 import java.util.List;
 public class BinaryTree {
 	
@@ -13,12 +12,6 @@ public class BinaryTree {
 	public BinaryTree() {
 		root = null;
 	}
-	/**
-	 * @param dataEntry 
-	 */
-	public void insert(DataEntry dataEntry) { 
-		 root = insertData(root,dataEntry); 
-	} 
 	/**
 	 * @param root node of tree
 	 * @param dataEntry: dictionary entry
@@ -45,6 +38,11 @@ public class BinaryTree {
 		return root;
 	}
 	
+	/**
+	 * @param root 
+	 * @param key to be found
+	 * @return return value of key
+	 */
 	public String searchKey(Node root, int key){
 		//if key not found
 		if(root == null){
@@ -63,27 +61,20 @@ public class BinaryTree {
 			return searchKey(root.getrChild(), key);
 		}
 	}
-	public List<DataEntry> sortDictionary(){
-		sort(root);
-		return listOfSorted;
-	}
 	/**
 	 * method to sort tree
 	 * @param root
 	 */
-	public void sort(Node root){
+	public List<DataEntry> sortDictionary(Node root){
 		if (root != null) { 
 			//sort left subtree
-            sort(root.getlChild());
+            sortDictionary(root.getlChild());
             //add root to list
             listOfSorted.add(root.getEntry());
             //sort right subtree
-            sort(root.getrChild()); 
+            sortDictionary(root.getrChild()); 
         } 
-	}
-	public List<DataEntry> sortSubDictionary(int k1,int k2){
-		sort2(root,k1,k2);
-		return listOfSortedInRange;
+		return listOfSorted;
 	}
 	/**
 	 * method sorts the element in given range
@@ -91,35 +82,31 @@ public class BinaryTree {
 	 * @param k1
 	 * @param k2
 	 */
-	public void sort2(Node root, int k1,int k2){
+	public List<DataEntry> sortInRange(Node root, int k1,int k2){
 	     if (root != null) { 
-             sort2(root.getlChild(),k1,k2);
+             sortInRange(root.getlChild(),k1,k2);
              if(root.getEntry().getKey()>=k1 && root.getEntry().getKey()<=k2){
                   listOfSortedInRange.add(root.getEntry());
              }
-             sort2(root.getrChild(),k1,k2); 
+             sortInRange(root.getrChild(),k1,k2); 
          } 
-	}
-	
-	public void deleteKey(int key) { 
-        root = deleteRec(root, key); 
-    } 
-   
+	     return listOfSortedInRange;
+	} 
     /**
      * @param root
      * @param key
      * @return tree after deleting the node
      */
-    public Node deleteRec(Node root, int key) { 
+    public Node deleteEntry(Node root, int key) { 
     	//Base Case: If the tree is empty 
     	if (root == null){
     		return root; 
     	}
         if (key < root.getEntry().getKey()) {
-            root.setlChild(deleteRec(root.getlChild(), key)); 
+            root.setlChild(deleteEntry(root.getlChild(), key)); 
         }
         else if (key > root.getEntry().getKey()) {
-        	root.setrChild(deleteRec(root.getrChild(), key)); 
+        	root.setrChild(deleteEntry(root.getrChild(), key)); 
         }
         // if key is found 
         else
@@ -131,21 +118,35 @@ public class BinaryTree {
                 return root.getlChild(); 
             }
             // node with two children: Get the inorder successor (smallest  in the right subtree) 
-            root.getEntry().setKey(minValue(root.getrChild())); 
-  
+            root.getEntry().setKey(minKey(root.getrChild())); 
+            root.getEntry().setValue(minValue(root.getrChild())); 
             // Delete the inorder successor 
-            root.setrChild(deleteRec(root.getrChild(), root.getEntry().getKey()));
+            root.setrChild(deleteEntry(root.getrChild(), root.getEntry().getKey()));
         } 
         return root; 
     } 
     /**
      * @param root
-     * @return minimum value in tree
+     * @return minimum key in right subtree
      */
-    public int minValue(Node root) { 
-        int minv = root.getEntry().getKey(); 
+    public int minKey(Node root) { 
+        int minKey = root.getEntry().getKey(); 
         while (root.getlChild() != null) { 
-            minv = root.getlChild().getEntry().getKey(); 
+            minKey = root.getlChild().getEntry().getKey();
+            
+            root = root.getlChild(); 
+        } 
+        return minKey; 
+    } 
+    /**
+     * @param root
+     * @return minimum value in right subtree
+     */
+    public String minValue(Node root) { 
+        String minv = root.getEntry().getValue(); 
+        while (root.getlChild() != null) { 
+            minv = root.getlChild().getEntry().getValue();
+            
             root = root.getlChild(); 
         } 
         return minv; 

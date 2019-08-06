@@ -13,13 +13,12 @@ public class DictionaryTest {
 
 	@Test
 	public void sortingTest() {
-		Dictionary d = new Dictionary("file.json");
+			Dictionary d = new Dictionary("file.json");
 		List<DataEntry> list = new ArrayList<DataEntry>();
-		d.addData(33, "hu");
-		d.addData(33, "hu");
+		d.addData(33, "huma");
+		d.addData(33, "huma");
 		list = d.getSortedList();
-		for(int i = 0; i<list.size();i++) {
-			System.out.println(list.get(i).getKey() + " " + list.get(i).getValue());
+		assertEquals("piyush",d.getValue(1));
 		}
 	}
 	@Test

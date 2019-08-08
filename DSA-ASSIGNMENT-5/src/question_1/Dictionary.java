@@ -14,7 +14,6 @@ public class Dictionary implements DictionaryInterface{
 	public Dictionary(String fileName)  {
 		try {
 			JSONObject rootJSON = (JSONObject) new JSONParser().parse(new FileReader(fileName));
-			@SuppressWarnings("unchecked")
 			Set<String> keys = rootJSON.keySet();
 			for (String i : keys) {
 				DataEntry dataEntry = new DataEntry(Integer.parseInt(i), rootJSON.get(i).toString());

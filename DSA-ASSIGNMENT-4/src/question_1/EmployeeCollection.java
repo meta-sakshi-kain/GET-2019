@@ -1,11 +1,14 @@
 package question_1;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 //class to add employee
 public class EmployeeCollection {
 	
 	//collection of employee made using a set
-	static HashSet<Employee> set=new HashSet<Employee>();
+	 ArrayList<Employee> emp=new ArrayList<Employee>();
+	Set<Integer> empID=new HashSet<Integer>();
 	/**
 	 * method adds employee to set
 	 * @param empId of employee
@@ -16,18 +19,9 @@ public class EmployeeCollection {
 	public void addEmployee(int empId, String name, String address){
 		
 		Employee employee = new Employee(empId, name, address);
-		//to check whether id is unique or not
-		boolean isIdUnique = true;
-		for(Employee emp:set){ 
-			if(emp.getEmpId()==empId){
-				//if id already exist 
-				isIdUnique = false;
-				break;
-			}
-		}
 		//if id is unique add employee to set
-		if(isIdUnique){
-			set.add(employee);
+		if(empID.add(empId)){
+			emp.add(employee);
 		}
 	}
 }

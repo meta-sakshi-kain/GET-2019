@@ -1,13 +1,8 @@
 package question_1;
-
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.junit.Test;
+
 //test class to check results of operations on employee
 public class EmployeeCollectionTest {
 
@@ -21,16 +16,9 @@ public class EmployeeCollectionTest {
 		collection.addEmployee(4,"sachin", "SDC");
 		collection.addEmployee(5,"sachin", "SDSC");
 		collection.addEmployee(2,"mini", "qwe");
-		//making a list
-		List<Employee> peopleList = new ArrayList<Employee>();
-		//adding employee from set to list
-		peopleList.addAll(EmployeeCollection.set);
 		//sorting list 
-		Collections.sort(peopleList,new  SortByName());
-		for (Employee emp : peopleList) {
-            System.out.println(emp);
-        }
-	    System.out.println();
+		Collections.sort(collection.emp ,new SortByName());
+		assertEquals("mini",collection.emp.get(0).getName());
 	}
 	//test case to sort by ID
 	@Test
@@ -42,13 +30,8 @@ public class EmployeeCollectionTest {
 		collection.addEmployee(4,"sachin", "SDC");
 		collection.addEmployee(5,"sachin", "SDSC");
 		collection.addEmployee(2,"mini", "qwe");
-		
-		List<Employee> peopleList = new LinkedList<Employee>();
-		peopleList.addAll(EmployeeCollection.set);
-		Collections.sort(peopleList,new  SortById());
-		for (Employee emp : peopleList) {
-            System.out.println(emp);
-        }
+		Collections.sort(collection.emp ,new  SortById());
+		assertEquals(2,collection.emp.get(0).getEmpId());
 	}
-
 }
+

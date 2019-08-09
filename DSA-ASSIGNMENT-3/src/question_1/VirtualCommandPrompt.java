@@ -4,11 +4,11 @@ public class VirtualCommandPrompt {
 
 	private Node currentDir;
 	private Node root;
-
+        //method to get root
 	public Node getRoot() {
 		return root;
 	}
-
+        //constructor
 	public VirtualCommandPrompt() {
 		root = new Node(null, "R:");
 		currentDir = root;
@@ -46,6 +46,7 @@ public class VirtualCommandPrompt {
 	 * @param command for make new folder
 	 * @return current directory
 	 */
+	//method to create new directory
 	private String mkdir(String command) {
 		//split folder name 
 		String folderName = command.substring((command.indexOf(" ") + 1), (command.length() - 1));
@@ -66,6 +67,7 @@ public class VirtualCommandPrompt {
 	 * @param command for execution
 	 * @return directory after command execution
 	 */
+	//method to execute cd command
 	private String cd(String command) {
 		String name = command.substring((command.indexOf(" ") + 1), (command.length() - 1));
 		//check input directory is a path or not
@@ -96,6 +98,7 @@ public class VirtualCommandPrompt {
 	 * @param remaining directory for cd command execution
 	 * @return directory after command execution
 	 */
+	//method to execute cd command when path is given
 	private String cdWithPath(String remainingDir) {
 		//if remaining directory not has path
 		if (remainingDir.charAt(remainingDir.length() - 1) != '\\')
@@ -119,6 +122,7 @@ public class VirtualCommandPrompt {
 	/**
 	 * @return parent directory of current directory
 	 */
+	//method to go to parent of given directory name
 	private String bk() {
 		//if current directory is not root
 		if (!currentDir.getName().equals(root.getName())) {
@@ -131,6 +135,7 @@ public class VirtualCommandPrompt {
 	/**
 	 * @return print list of folders and sub-folders of current directory
 	 */
+	//method to print the folders and sub-folders of the given directory
 	private String ls() {
 		for (int i = 0; i < currentDir.childList.size(); i++) {
 			//print folder(s) of current directory
@@ -144,6 +149,7 @@ public class VirtualCommandPrompt {
 	/**
 	 * @param command for find folder
 	 */
+	//find the given filename in current folder and sub-folders 
 	private void find(String command) {
 		String nameOfFolder = command.substring((command.indexOf(" ") + 1), (command.length() - 1));
 		for (int i = 0; i < currentDir.childList.size(); i++) {
@@ -165,6 +171,7 @@ public class VirtualCommandPrompt {
 	 * @param current directory 
 	 * print path of folder if find
 	 */
+	//method to get structure of directory 
 	private void tree(Node currentDir) {
 		//if current directory has no folder
 		if (currentDir.childList.size() == 0)

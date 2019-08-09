@@ -38,7 +38,7 @@ public class VirtualCommandPrompt {
 				tree(currentDir);
 				return printDir(currentDir);
 			default :
-				return null;
+				return "Invalid Command";
 		}
 	}
 

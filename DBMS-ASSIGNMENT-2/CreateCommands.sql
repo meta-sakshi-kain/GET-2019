@@ -49,13 +49,23 @@ CREATE TABLE Category(
 CREATE TABLE Product(
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
-    quantity INT NOT NULL,
     price DOUBLE NOT NULL,
     image VARCHAR(20),
     category_id INT,
     date DATE NOT NULL,
     FOREIGN KEY (category_id)
         REFERENCES Category (category_id)
+);
+CREATE TABLE categoryproductlink(
+    product_id INT,
+    category_id INT,
+    PRIMARY KEY (product_id,category_id),
+    CONSTRAINT Product_Id4 FOREIGN KEY (product_id)
+        REFERENCES product (product_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (category_id)
+        REFERENCES category (category_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
         
 CREATE TABLE items_ordered(
@@ -78,4 +88,13 @@ CREATE TABLE orders(
     order_date DATE,
     order_status VARCHAR(20) CHECK (order_status IN ('Shipped','Cancelled', 'Returned', 'Not Shipped'))
 );
+
+CREATE TABLE inventory(
+    inventory_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    quantity_in_stock INT,
+    CONSTRAINT product_id1 FOREIGN KEY (product_id)
+        REFERENCES Product (product_id)
+);
+
         

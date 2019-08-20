@@ -7,7 +7,7 @@ FROM
         LEFT JOIN
     orders o ON s.shopper_id = o.shopper_id
 WHERE
-    DATEDIFF(CURDATE(), ORDER_DATE) > 30
+    DATEDIFF(CURDATE(), ORDER_DATE) < 30
 GROUP BY o.shopper_id;
 
 
@@ -19,7 +19,7 @@ FROM
         LEFT JOIN
     shopper s ON o.shopper_id = s.shopper_Id
 WHERE
-      DATEDIFF(CURDATE(), ORDER_DATE) > 30
+      DATEDIFF(CURDATE(), ORDER_DATE) < 30
 ORDER BY o.amount DESC
 LIMIT 10;
 
@@ -40,7 +40,7 @@ SELECT
 FROM
     orders o
 WHERE
-      DATEDIFF(CURDATE(), ORDER_DATE) > 30
+      DATEDIFF(CURDATE(), ORDER_DATE) < 180
 GROUP BY MONTH(order_date); 
 
 #Mark the products as Inactive which are not ordered in last 90 days.

@@ -29,7 +29,7 @@ SELECT
 FROM
     product p,
     items_ordered o
-    where o.product_id = p.product_id
+    where o.product_id = p.product_id AND  DATEDIFF(CURDATE(), ORDER_DATE) < 60 
 GROUP BY o.product_id
 ORDER BY SUM(o.product_quantity) DESC
 LIMIT 20;

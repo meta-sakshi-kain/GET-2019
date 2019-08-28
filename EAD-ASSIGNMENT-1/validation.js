@@ -1,3 +1,4 @@
+//function to register user
 function registerEmployee() {
 
     var fullName = document.getElementById("full_name").value;
@@ -41,10 +42,14 @@ function registerEmployee() {
         return false;
     }
 
-    var empId = 'E19/1230';
+    var empId = 'E19/1221';
     var successfulReg = document.getElementById("employee_registration");
     document.getElementById("emp_Id").value = empId;
+    var elem = document.querySelector('#add_vehicle');
+    elem.style.visibility='visible';
     successfulReg.innerHTML = "Congrats!! You are successfully registered. Your registration ID is" + " " + empId;
+
+    
 }
 
 var dailyInINR;
@@ -82,26 +87,28 @@ function registerVehicle(type) {
     dailyPrice = dailyInINR;
     monthlyPrice = monthlyInINR;
     yearlyPrice = yearlyInINR;
+    var elem = document.querySelector('#divForPass');
+    elem.style.visibility='visible';
     document.getElementById("add_vehicle").innerHTML = "Your Vehicle has been added!!"
 }
 /* changes currency into selected currency */
 function changeCurrency(priceType) {
     if (priceType == "USD") {
-        document.getElementById("DailyPrice").innerHTML = 0.014 * dailyInINR;
-        dailyPrice = 0.014 * dailyInINR;
-        document.getElementById("MonthlyPrice").innerHTML = 0.014 * monthlyInINR;
-        monthlyPrice = 0.014 * monthlyInINR;
-        document.getElementById("YearlyPrice").innerHTML = 0.014 * yearlyInINR;
-        yearlyPrice = 0.014 * yearlyInINR;
+        dailyPrice = (0.014 * dailyInINR).toFixed(2);
+        document.getElementById("DailyPrice").innerHTML = dailyPrice;
+        monthlyPrice = (0.014 * monthlyInINR).toFixed(2);
+        document.getElementById("MonthlyPrice").innerHTML = monthlyPrice;
+        yearlyPrice = (0.014 * yearlyInINR).toFixed(2);
+        document.getElementById("YearlyPrice").innerHTML = yearlyPrice;
     }
     if (priceType == "YEN") {
-        document.getElementById("DailyPrice").innerHTML = 1.47 * dailyInINR;
-        dailyPrice = 1.47 * dailyInINR;
-        document.getElementById("MonthlyPrice").innerHTML = 1.47 * monthlyInINR;
-        monthlyPrice = 1.47 * monthlyInINR;
-        document.getElementById("YearlyPrice").innerHTML = 1.47 * yearlyInINR;
-        yearlyPrice = 1.47 * yearlyInINR;
-    }
+        dailyPrice = (1.47 * dailyInINR).toFixed(2);
+        document.getElementById("DailyPrice").innerHTML = dailyPrice;
+        monthlyPrice = (1.47 * monthlyInINR).toFixed(2);
+        document.getElementById("MonthlyPrice").innerHTML = monthlyPrice;
+        yearlyPrice = (1.47 * yearlyInINR).toFixed(2);
+        document.getElementById("YearlyPrice").innerHTML = yearlyPrice;
+        }
     if (priceType == "INR") {
         document.getElementById("DailyPrice").innerHTML = dailyInINR;
         document.getElementById("MonthlyPrice").innerHTML = monthlyInINR;
@@ -120,7 +127,9 @@ function getPriceFunction(value) {
     if (value == "Yearly") {
         price = yearlyPrice;
     }
+    return price;
 }
+//function to get pass
 function getPassFunction() {
     document.getElementById("divForPass").innerHTML = "Your pass price is " + price;
 }

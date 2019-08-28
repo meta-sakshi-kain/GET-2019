@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Metacube Parking System</title>
-    <script src="validation.js">
+    <script src="Validation.js">
     </script>
 </head>
-
+<style>
+#add_vehicle{
+    visibility: hidden;
+}
+#divForPass{
+    visibility: hidden;
+}
+</style>
 <body align="center">
     <h1>Welcome to Metacube Parking System</h1>
     <div id="employee_registration">
@@ -23,7 +32,7 @@
             <input id="register_employee" type="submit" value="Register" onclick="registerEmployee()">
         </form>
     </div>
-    <div id="add_vehicle">
+    <div id="add_vehicle" >
         <form name="addVehicleForm" action="" method="GET">
             <h2>Add Vehicle</h2>
             <input id="vehicle_name" type="text" placeholder="Vehicle name" size="60%"></br></br>
@@ -34,7 +43,7 @@
                 <option value="fourWheeler">Four Wheeler</option>
             </select></br></br>
             <input id="vehicle_number" type="text" placeholder="Vehicle Number" size="60%"></br></br>
-            <input id="emp_Id" type="text" placeholder="Employee Registration Id" size="60%"></br></br>
+            <input id="emp_Id" type="text" placeholder="Employee Registration Id" size="60%" readonly></br></br>
             <textarea placeholder="Identification" size="60%" cols="61"></textarea></br></br>
             <input id="add_vehicle_submit" type="submit" value="Add Vehicle"
                 onclick="registerVehicle(vehicle_type.value)">
@@ -59,12 +68,6 @@
                 <td id="YearlyPrice"></td>
             </tr>
         </table><br>
-        <label><input type="radio" id="pricePlan" name="pricePlan" value="Daily"
-                onchange="getPriceFunction(this.value)">Daily</label>
-        <label><input type="radio" id="pricePlan" name="pricePlan" value="Monthly"
-                onchange="getPriceFunction(this.value)">Monthly</label>
-        <label><input type="radio" id="pricePlan" name="pricePlan" value="Yearly"
-                onchange="getPriceFunction(this.value)">Yearly</label>
         <br>
         <br>
         <select id="priceType" onchange="changeCurrency(priceType.value)">
@@ -76,9 +79,16 @@
         </select>
         <br>
         <br>
-
+        <label><input type="radio" id="pricePlan" name="pricePlan" value="Daily"
+                onchange="getPriceFunction(this.value)">Daily</label>
+        <label><input type="radio" id="pricePlan" name="pricePlan" value="Monthly"
+                onchange="getPriceFunction(this.value)">Monthly</label>
+        <label><input type="radio" id="pricePlan" name="pricePlan" value="Yearly"
+                onchange="getPriceFunction(this.value)">Yearly</label>
+        
+        <br>
+        <br>
         <input type="button" value="getPass" id="getPass" onclick="getPassFunction()" />
 
 </body>
-
 </html>

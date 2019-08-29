@@ -1,56 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Metacube Parking System</title>
-    <script src="Validation.js">
+    <script src="validation.js">
     </script>
 </head>
 <style>
-#add_vehicle{
-    visibility: hidden;
-}
-#divForPass{
-    visibility: hidden;
-}
+    #add_vehicle {
+        visibility: hidden;
+    }
+
+    #divForPass {
+        visibility: hidden;
+    }
+
+    #details {
+        visibility: hidden;
+    }
+
+    input[type=text],
+    input[type=number],
+    input[type=email],
+    input[type=password],
+    textarea,
+    select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 5px 30px;
+        display: block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        float: right;
+    }
+
+    button {
+        width: 50%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 30px 10px 30px 5px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div {
+        margin-top: 50px;
+        margin-left: 450px;
+        width: 650px;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 5px;
+        display: block;
+    }
+
+    #label {
+        padding: 8px 12px 12px 0;
+        display: block;
+        float: left;
+        margin-left: 30px;
+
+    }
+
+    #employeeGender1 {
+        margin-left: 30px;
+        float: left;
+    }
 </style>
+
 <body align="center">
-    <h1>Welcome to Metacube Parking System</h1>
+    <h1 style="margin-top: 70px;">Metacube Parking System</h1>
     <div id="employee_registration">
-        <form name="registerForm" action="" method="GET">
+        <form name="registerForm" action="" method="POST" onsubmit="return false;">
             <h2>Register here</h2>
-            <input id="full_name" name="full_name" type="text" placeholder="Full Name" size="60%"></br></br>
-            <label><input id="employeeGender" type="radio" name="gender">Male</label>
-            <label><input id="employeeGender" type="radio" name="gender">Female</label></br></br>
-            <input id="email" name="email" type="email" placeholder="Email" size="60%"></br></br>
-            <input id="password" name="password" type="password" placeholder="Password" size="60%"></br></br>
-            <input id="confirm_password" name="confirm_password" type="password" placeholder="Confirm Password"
+            <label id='label'>NAME*</label><input id="full_name" name="full_name" type="text" placeholder="Full Name"
+                size="60%"></br></br><br><br>
+            <label id='label'>GENDER*</label><label id="employeeGender1" style="margin-left: 220px"><input id="M"
+                    type="radio" name="gender">Male</label>
+            <label id="employeeGender1"><input id="F" type="radio" name="gender">Female</label></br></br><br>
+            <label id='label'>EMAIL ID*</label><input id="email" name="email" type="email" placeholder="Email"
+                size="60%" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"></br></br><br><br>
+            <label id='label'>PASSWORD*</label><input id="password" name="password" type="password"
+                placeholder="Password" size="60%"></br></br><br><br>
+            <label id='label'>CONFIRM PASSWORD*</label><input id="confirm_password" name="confirm_password"
+                type="password" placeholder="Confirm Password" size="60%"></br></br><br><br>
+            <label id='label'>CONTACT NO*</label><input id="contact" name="contact" type="text" placeholder="Contact"
                 size="60%"></br></br>
-            <input id="contact" name="contact" type="text" placeholder="Contact" size="60%"></br></br>
-            <input id="register_employee" type="submit" value="Register" onclick="registerEmployee()">
+            <button id="register_employee" type="submit" value="Register" onclick="registerEmployee()">Register</button>
         </form>
     </div>
-    <div id="add_vehicle" >
-        <form name="addVehicleForm" action="" method="GET">
-            <h2>Add Vehicle</h2>
-            <input id="vehicle_name" type="text" placeholder="Vehicle name" size="60%"></br></br>
-            <select id="vehicle_type">
+    <div id="add_vehicle">
+        <form name="addVehicleForm" action="" method="POST" onsubmit="return false;">
+            <h2>Add Vehicle</h2><br>
+            <label id="label">Vehicle name*</label><input id="vehicle_name" type="text" placeholder="Vehicle name"
+                required size="60%"></br></br><br>
+            <label id="label">Vehicle Type*</label><select id="vehicle_type" required>
                 <option disabled selected>--Select Type--</option>
                 <option value="cycle">Cycle</option>
                 <option value="motorCycle">MotorCycle</option>
                 <option value="fourWheeler">Four Wheeler</option>
-            </select></br></br>
-            <input id="vehicle_number" type="text" placeholder="Vehicle Number" size="60%"></br></br>
-            <input id="emp_Id" type="text" placeholder="Employee Registration Id" size="60%" readonly></br></br>
-            <textarea placeholder="Identification" size="60%" cols="61"></textarea></br></br>
-            <input id="add_vehicle_submit" type="submit" value="Add Vehicle"
-                onclick="registerVehicle(vehicle_type.value)">
+            </select></br></br><br>
+            <label id="label">Vehicle Number*</label><input id="vehicle_number" type="text" placeholder="Vehicle Number"
+                required size="60%"></br></br><br></br>
+            <label id="label">Employee ID</label><input id="emp_Id" type="text" placeholder="Employee Registration Id"
+                required size="60%" readonly></br></br><br>
+            <label id="label">Identification</label><textarea placeholder="Identification" size="60%"
+                cols="61"></textarea></br></br>
+            <button id="add_vehicle_submit" type="submit" value="Add Vehicle"
+                onclick="registerVehicle(vehicle_type.value)">Register</button>
     </div>
     <div id="divForPass">
         <h2>Select your plan</h2>
-        <table border="5px" align="center" id="table">
+        <table border="5px" align="center" id="table" style="margin-bottom: 20px">
             <tr>
                 <th>Plan</th>
                 <th>Price in INR</th>
@@ -69,14 +139,17 @@
             </tr>
         </table><br>
         <br>
-        <br>
-        <select id="priceType" onchange="changeCurrency(priceType.value)">
+        <select id="priceType" onchange="changeCurrency(priceType.value)" style="margin-left: 10px;">
             <option disabled selected>--Select Price Type--</option>
             <option>INR</option>
             <option>USD</option>
             <option>YEN</option>
             </option>
         </select>
+        <br>
+        <label style="margin-left: 110px;">Currency</label>
+        <br>
+        <br>
         <br>
         <br>
         <label><input type="radio" id="pricePlan" name="pricePlan" value="Daily"
@@ -85,10 +158,39 @@
                 onchange="getPriceFunction(this.value)">Monthly</label>
         <label><input type="radio" id="pricePlan" name="pricePlan" value="Yearly"
                 onchange="getPriceFunction(this.value)">Yearly</label>
-        
         <br>
         <br>
-        <input type="button" value="getPass" id="getPass" onclick="getPassFunction()" />
+        <button value="getPass" id="getPass" onclick="getPassFunction()">Get Pass</button>
+    </div>
+    <div id='details'>
+        <h2>Your details are:</h2>
+        <table border="5px" align="center" id="table" cellpadding="6px" style="margin-bottom: 20px;">
+            <tr>
+                <td>Name</td>
+                <td id='username'></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td id='emaill'></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td id='contactdetail'></td>
+            </tr>
+            <tr>
+                <td>Vehicle Name</td>
+                <td id='vehicleName'></td>
+            </tr>
+            <tr>
+                <td>Vehicle Type</td>
+                <td id='vehicleType'></td>
+            </tr>
+            <tr>
+                <td>Pass Price</td>
+                <td id='passprice'></td>
+            </tr>
+        </table>
+    </div>
 
 </body>
 </html>

@@ -35,7 +35,7 @@ public class ApplicationContext {
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBean lsfb = new LocalSessionFactoryBean();
 		lsfb.setDataSource(getDataSource());
-		lsfb.setPackagesToScan("com.metacube.assignment.EADAssignment11.model");
+		lsfb.setPackagesToScan("com.metacube.assignment.EADHIBERNATEASSIGNMENT1.model");
 		lsfb.setHibernateProperties(hibernateProperties());
 		try {
 			lsfb.afterPropertiesSet();

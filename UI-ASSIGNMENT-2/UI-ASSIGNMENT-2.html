@@ -1,0 +1,242 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Metacube Parking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#addEmployee">ADD EMPLOYEE</a></li>
+            <li><a href="#addVehicle">ADD VEHICLE</a></li>
+            <li><a href="#giveFeedback">FEEDBACK</a></li>
+            <li><a href="#pricing">PRICING</a></li>
+        </ul>
+    </nav>
+
+    <div id='image'>
+        <img src="parking.jpg">
+        <div id='title'>
+            <h1>Welcome to Metacube Parking</h1>
+        </div>
+    </div>
+    <button class="collapsible" id='addEmployee'><strong>Register here</strong></button>
+    <div id='addEmployee' class="content">
+        <form id='addEmployee' action="RegisterServlet">
+
+            <table align="center" style="text-align: left" cellpadding="10">
+                <tr>
+                    <td><label>FIRST NAME<span>*</span></label></td>
+                    <td><input name="first_name" type="text" placeholder="First Name" size="60%" pattern="[A-Z a-z]*"
+                            required></td>
+                </tr>
+                <tr>
+                    <td><label>LAST NAME<span>*</span></label></td>
+                    <td><input name="last_name" type="text" placeholder="Last Name" size="60%" pattern="[A-Z a-z]*"
+                            required></td>
+                </tr>
+                <tr>
+                    <td><label>GENDER<span>*</span></label></td>
+                    <td><label> <input type="radio" name="gender" value="Male" required>Male
+                        </label> <label> <input type="radio" name="gender" value="Female">Female
+                        </label></td>
+                    <td>
+                </tr>
+                <tr>
+                    <td><label>EMAIL<span>*</span></label></td>
+                    <td><input name="email" type="email" placeholder="Email" size="60%" required></td>
+                </tr>
+                <tr>
+                    <td><label>PASSWORD<span>*</span></label></td>
+                    <td><input name="password" type="password" placeholder="Password" size="60%" id="password"
+                            pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}"
+                            title="Password should contain at least one capital letter,should be alphanumeric and of minimum length 8"
+                            required></td>
+                </tr>
+                <tr>
+                    <td><label>CONFIRM PASSWORD<span>*</span></label></td>
+                    <td><input name="confirm_password" type="password"
+                            pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}" id="confirm_password"
+                            title="Password should contain at least one capital letter,should be alphanumeric and of minimum length 8"
+                            placeholder="Confirm Password" size="60%" required></td>
+                </tr>
+                <tr>
+                    <td><label>CONTACT<span>*</span></label></td>
+                    <td><input name="contact" type="text" placeholder="Contact" size="60%" pattern="([0-9]){10}"
+                            required></td>
+                </tr>
+
+            </table>
+            <br> <br> <input class="new" id="register_employee" type="submit" onclick="confirmPassword()"
+                value="Register">
+        </form>
+    </div>
+    <button class="collapsible" id="addVehicle"><strong>Add Vehicle</strong></button>
+    <div id="addVehicle" class="content">
+        <form action="RegisterVehicleServlet" method="GET">
+            <table align="center" style="text-align: left" cellpadding="10">
+                <tr>
+                    <td><label>VEHICLE NAME</label></td>
+                    <td><input name="vehicle_name" type="text" placeholder="vehicle_name" size="60%"
+                            pattern="[A-Z a-z]*" required></td>
+                </tr>
+                <tr>
+                    <td><label>VEHICLE TYPE</label></td>
+                    <td><select name="vehicle_type">
+                            <option disabled selected>--Select-Type--</option>
+                            <option value="Cycle">Cycle</option>
+                            <option value="MotorCycle">MotorCycle</option>
+                            <option value="Four Wheelers">Four Wheelers</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td><label>VEHICLE NUMBER</label></td>
+                    <td><input name="vehicle_number" type="text" placeholder="Vehicle Number" size="60%" required></td>
+                </tr>
+                <tr>
+                    <td><label>EMPLOYEE ID</label></td>
+                    <td><input name="regId" type="text" size="60%" " readonly></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>IDENTIFICATION</label></td>
+                                            <td><textarea name=" Identification" placeholder="Identification"
+                            cols="60"></textarea></td>
+                </tr>
+            </table>
+            <input name="addVehicleButton" type="submit" value="Add" class="new">
+        </form>
+    </div>
+    <button class="collapsible" id='feedback'><strong>Feedback</strong></button>
+    <div id='giveFeedback' class='content'>
+        <form action="getFeedback" method="GET"></form>
+        <table align="center" style="text-align: left" cellpadding="10">
+            <tr>
+                <td><label>FULL NAME<span>*</span></label></td>
+                <td><input name="first_name" type="text" placeholder="Full Name" size="60%" pattern="[A-Z a-z]*"
+                        required></td>
+            </tr>
+            <tr>
+                <td><label>EMAIL<span>*</span></label></td>
+                <td><input name="last_name" type="text" placeholder="email" size="60%" pattern="[A-Z a-z]*" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Your Review</td>
+                <td><textarea placeholder="type here"></textarea></td>
+            </tr>
+            <tr>
+                <td><label>Overall Experience<span>*</span></label></td>
+                <td><label> <input type="radio" name="gender" value="Male" required>Excellent
+                    </label> <label> <input type="radio" name="gender" value="Female">Good
+                    </label><label> <input type="radio" name="gender" value="Female">Satisfactory
+                    </label><label> <input type="radio" name="gender" value="Female">Poor
+                    </label></td>
+                <td>
+            </tr>
+            <tr>
+                <td><label>Timely Response<span>*</span></label></td>
+                <td><label> <input type="radio" name="gender" value="Male" required>Excellent
+                    </label> <label> <input type="radio" name="gender" value="Female">Good
+                    </label><label> <input type="radio" name="gender" value="Female">Satisfactory
+                    </label><label> <input type="radio" name="gender" value="Female">Poor
+                    </label></td>
+                <td>
+            </tr>
+            <tr>
+                <td><label>Our Support<span>*</span></label></td>
+                <td><label> <input type="radio" name="gender" value="Male" required>Excellent
+                    </label> <label> <input type="radio" name="gender" value="Female">Good
+                    </label><label> <input type="radio" name="gender" value="Female">Satisfactory
+                    </label><label> <input type="radio" name="gender" value="Female">Poor
+                    </label></td>
+                <td>
+            </tr>
+            <tr>
+                <td><label>Overall Satisfaction<span>*</span></label></td>
+                <td><label> <input type="radio" name="gender" value="Male" required>Excellent
+                    </label> <label> <input type="radio" name="gender" value="Female">Good
+                    </label><label> <input type="radio" name="gender" value="Female">Satisfactory
+                    </label><label> <input type="radio" name="gender" value="Female">Poor
+                    </label></td>
+                <td>
+            </tr>
+            <tr>
+                <td>Is there anything you would like to tell us?</td>
+                <td><textarea placeholder="type here"></textarea></td>
+            </tr>
+        </table><br> <br> <input type="submit" class='new' style='margin-left: 35%'> </form>
+    </div>
+    <button class="collapsible" id='pricing'><strong>Pricing</strong></button>
+    <div id='pricing' class='content'>
+        <div class="price">
+            <form method="GET">
+                <h1>Cycle</h1>
+                <div id="circle">
+                    <div> <strong style="font-size: 20px;">$100</strong> /month
+                    </div>
+
+                </div>
+                <br>
+                <div align="center" style="font-size: 12px;">
+                    $5 Daily <br> $100 Monthly <br> $500 Yearly <br>
+                </div>
+                <br>
+                <input name="purchase" type="submit" class='new' value="Purchase Now">
+            </form>
+        </div>
+        <div class="price">
+            <form method="GET">
+                <h1>MotorCycle</h1>
+                <div id="circle">
+                    <div> <strong style="font-size: 20px;">$200</strong> /month
+                    </div>
+
+                </div>
+                <br>
+                <div align="center" style="font-size: 12px;">
+                    $10 Daily <br> $200 Monthly <br> $1000 Yearly <br>
+                </div>
+                <br>
+                <input name="purchase" type="submit" class='new' value="Purchase Now">
+            </form>
+
+        </div>
+        <div class="price">
+            <form method="GET">
+                <h1>FourWheeler</h1>
+                <div id="circle">
+                    <div> <strong style="font-size: 20px;">$500</strong> /month
+                    </div>
+                </div>
+                <br>
+                <div align="center" style="font-size: 12px;">
+                    $20 Daily <br> $500 Monthly <br> $3500 Yearly <br>
+                </div>
+                <br>
+                <input name="purchase" type="submit" class='new' value="Purchase Now">
+            </form>
+        </div>
+    </div>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
+<footer>
+    <nav></nav>
+</footer>

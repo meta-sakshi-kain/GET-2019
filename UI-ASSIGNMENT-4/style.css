@@ -1,0 +1,408 @@
+*{
+	font-family: "Comic Sans MS",verdana;
+}	
+#home{
+    background:url("images/homebg.png");
+    width: 100%;
+    height:1000px;
+    background-repeat: no-repeat;
+}
+body{
+	background: url("images/bodybg.png");
+	margin:0;
+}
+
+header{
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.menu-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+     padding: 1%; 
+    margin-top: -5px;
+   }
+li{
+    list-style: none;
+    display: inline-block;
+}
+.menu-items a{
+        color: rgb(200, 215, 230);
+        font-family:  sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        }
+        
+ #menu{
+    flex-basis: 400px;
+}
+
+
+#logo{
+    margin-left: 5%;
+    position: relative;
+}
+
+
+#Links{
+    flex-basis: 100px;
+}
+.Links{
+    color: rgb(200, 215, 230); 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+} 
+.Links a{
+    color: rgb(200, 215, 230); 
+}
+#cover-section{
+    margin-top:-50%; 
+    color: white;
+
+}
+#cover-section h1{
+    font-size:60px;
+    margin-left: 10%;
+    display: inline-block;
+    width: 35%;
+    margin-top: 2%;
+}
+#features{
+    border: none;
+    padding: 1.2%;
+    width:8%;
+    background-color: #4466c9;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+#download{
+    border: none;
+    padding: 1.2%;
+    width:8%;
+    background-color: #fc6942;
+    border-radius: 5px;
+    color: white;
+    margin-left: 11%;
+    cursor: pointer;
+}
+#firstImage{
+    margin-left:55%;
+    margin-top: -20%;
+}
+#perfectFeature{
+	margin:50px 50px auto;
+}
+#feature-headline{
+    display: flex;
+}
+#feature{
+    flex-direction: row;
+}
+#features-heading{
+    margin-top: 15%;
+    /* margin-left: 45%; */
+    text-align: center;
+}
+.heading{
+    color: rgb(89, 138, 230);
+	font-size: 30px;
+	font-weight: bolder;
+	text-align: center;
+    
+}
+.sub-heading{
+    color:rgb(176, 184, 192); 
+	font-size: 15px;
+	margin-top: 2px;
+	text-align: center;
+}
+#feature1 i{
+    color: red;
+}
+#feature-image-slider {
+	display: flex;
+}
+
+#feature-image-slider img {
+	flex: 1;
+	width: 20%;
+	border: 1px solid #fff;
+	box-shadow:5px 2px 8px 5px #888888;
+}
+#feature-section {
+	width:100%;
+	margin:auto;
+}
+
+#feature-image-slider {
+	margin: 100px 100px;
+}
+
+#features-headline {
+	margin: 100px 200px;
+	display: flex;
+}
+
+#features-headline div {
+	flex: 1;
+	display: flex;
+	margin:0 10px;
+}
+
+#features-headline div div {
+	display: block;
+}
+
+#features-headline div img {
+	width: 70px;
+	height: 70px;
+}
+
+#features-headline div div h1 {
+	color: black;
+	text-align: left;
+	margin-left: 10px;
+	margin-bottom:10px;
+	font-size: 22px;
+	margin-top: -2px;
+}
+
+#features-headline div div p {
+	color: #888;
+	text-align: left;
+	margin-left: 10px;
+	font-size: 15px;
+}
+#slide-1-image {
+	transform: skew(0deg, 3deg)translateX(100px)scale(0.7);	
+}
+
+#slide-2-image {
+	transform: skew(0deg, 3deg)translateX(25px)scale(0.9);
+	z-index: 5;
+}
+
+#slide-4-image {
+	transform: skew(0deg, -3deg)translateX(-25px)scale(0.9);
+	z-index: 5;
+}
+
+#slide-5-image {
+	transform: skew(0deg, -3deg)translateX(-100px)scale(0.8);
+}
+
+#slide-3-image {
+	z-index: 10;
+}
+
+#Screenshot-section {
+	margin: 180px;
+}
+#screenshot1{
+	margin-left:180px;
+}
+#screenshot2{
+	margin-left:50px;
+}
+
+.screenshots-content {
+	display: flex;
+	margin: 150px;
+}
+
+.screenshots-content div {
+	margin: 0px 100px;
+	display: block;
+	align-content: space-between;
+}
+
+.screenshots-content div img {
+	margin: 150px 0px 30px 0px;
+	vertical-align: middle;
+}
+
+.screenshots-content div p {
+	vertical-align: middle;
+	margin: 10px 0px;
+	color: #888;
+	font-size: 20px;
+}
+.screenshots-content > p{
+	transform:rotate(90deg) ;
+	color: rgb(221, 221, 221);
+	position: absolute;
+	font-size: 200px;
+	z-index: -1;
+}
+
+#review-section {
+	margin: 100px;
+	width: 70%;
+	margin: auto;
+}
+
+#review-section div {
+	display: flex;
+	margin: 0 50px;
+}
+
+#review-section div div {
+	flex: 1;
+	display: block;
+	margin-top:50px;
+	margin-bottom:50px;
+}
+
+#review-section div div h1 {
+	font-size: 72px;
+	width: 5%;
+	margin-bottom:auto;
+	margin-top:auto;
+}
+
+#review-section div div p {
+	margin-top: 30px;
+	margin-left: 10px;
+	font-size: 15px;
+	text-align: left;
+	color: #444;
+}
+
+#review-section div div span {
+	margin-left: 10px;
+	font-size: 12px;
+	text-align: left;
+	color: #444;
+}
+
+.opening-braces {
+	color: #6388FB;
+	float: left;
+	font-size:20px !important;
+}
+
+.closing-braces {
+	color: #6388FB;
+	float: right;
+	font-size:20px !important;
+}
+
+#download-app-section {
+	padding: 0px 200px;
+	display: flex;
+	background:url("images/downloadbg.png");
+}
+
+#download-app-section div h1 {
+	color: #fff;
+	margin-top: 100px;
+	font-size: 30px;
+}
+
+#download-app-section div p {
+	margin-top: 10px;
+	color: #fff;
+	font-size: 15px;
+	letter-spacing: 0.1em;
+	text-align: left;
+	padding-right: 70px;
+}
+
+#download-app-section div {
+	flex: 1;
+}
+
+#download-app-section div img {
+	margin: 100px 0px 0px 5px;
+}
+footer{
+	background:#3B3C53;
+	padding:10px;
+}
+#footer{
+	flex: 1;
+	
+	display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+/* #footer {
+	flex-basis: 400px;
+} */
+
+#footer ul {
+	
+	text-align: center;
+	padding: 10px, 0;
+	display: flex;
+	flex-direction: row;
+}
+
+#footer ul li {
+	display: inline-block;
+	flex-basis: 80px;
+}
+
+#footer ul li a {
+	margin-top: 5px;
+	color: #B0B1C3;
+	padding: 10px;
+	display: inline-block;
+	border-bottom: solid 3px #3B3C53;
+	text-decoration: none;
+}
+
+#footer ul li a:hover {
+	background: #fff;
+	color: #3B3C53;
+}
+
+#footer .logo {
+	height: 15px;
+	/* margin-left:150px; */
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#footer div a {
+	margin-top: 5px;
+	color: #B0B1C3;
+	padding: 5px;
+	display: inline-block;
+	border-bottom: solid 3px #3B3C53;
+}
+
+#footer div a i {
+	background: #3B3C53;
+	color: #B0B1C3;
+	padding: 5px;
+	border: none;
+}
+
+#footer div a i:hover {
+	background: #fff;
+	color: #3B3C53;
+	transition: 1s;
+}
+
+#rights {
+	display:block;
+	background: #3B3C53;
+	text-align: center;
+	color: #888;
+	margin-top:100px;
+}
+#hr{
+	background-color: rgb(107, 107, 107);
+	width:80%;
+	margin: auto;
+	margin-top: 20px;
+	height:1px;
+}
+
